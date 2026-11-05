@@ -101,6 +101,7 @@ This repository contains a comprehensive library of interactive Desmos programs 
 The blank lab assignments are provided in both PDF format for easy printing and TeX format for instructors who wish to customize the materials. You can access the complete sets of assignments in the folders linked below:
 
 * [📁 Calculus I Lab Assignments Directory](./MATH_181_Desmos_Labs)
+* [📁 Calculus I Lab Assignments Directory](./MATH_182_Desmos_Labs)
 * [📁 Calculus III Lab Assignments Directory](./MATH_283_Desmos_Labs)
 
 ---
