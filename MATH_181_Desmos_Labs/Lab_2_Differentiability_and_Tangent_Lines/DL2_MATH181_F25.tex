@@ -1,0 +1,285 @@
+\documentclass[]{exam}
+\usepackage{amssymb}
+\usepackage[top=1in, bottom=1.5in, left=1in, right=1in]{geometry}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\checkboxchar{$\Box$}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{comment}
+\usepackage{multicol}
+\usepackage{color}
+\CorrectChoiceEmphasis{\color{red}}
+\SolutionEmphasis{\color{red}}
+\usepackage{advdate}
+\usepackage{gensymb}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+
+\usepackage{pgfkeys,pgfcalendar}
+
+\newcount\pgfdatecount
+\newcommand{\tomorrow}{%
+\pgfcalendardatetojulian{\year-\month-\day+1}{\pgfdatecount}
+\pgfcalendarjuliantodate{\the\pgfdatecount}{\myyear}{\mymonth}{\myday}
+\pgfcalendarmonthname{\mymonth}\space\myday,\space\myyear%
+}
+
+
+\newcommand{\advanceday}[1][1]{
+\begingroup
+\AdvanceDate[#1]
+\today
+\endgroup}
+
+\newcommand{\vertex}{\node[vertex]}
+\tikzstyle{vertex}=[circle, draw, inner sep=0pt, minimum size=6pt]
+
+\usepackage{lastpage} 
+\usepackage{extramarks}
+\usepackage{graphicx} 
+\usepackage{tikz}
+\usepackage{sectsty} 
+\usepackage{amsmath,amsfonts,amsthm} 
+\usepackage{wrapfig, blindtext}
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in 
+\numberwithin{equation}{section}
+\linespread{1.1} 
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+\setlength\answerskip{-.075in}
+\setlength\answerlinelength{.5in}
+\newcommand{\myitem}{\part[-]}
+
+
+
+
+% HEADER AND FOOTER
+\pagestyle{headandfoot}
+\runningheadrule
+\runningfootrule
+\firstpageheader{Kutztown University}{  }{MATH 181 -- Calculus I}
+\firstpageheadrule
+\runningheader{Desmos Lab 2}{ }{MATH 181}
+\firstpagefooter{}{}{} 
+\runningfooter{}{}{Page \thepage\ of \numpages}
+
+
+\newcommand{\assignmentname}{Desmos Lab II} % Assignment title
+\newcommand{\coursetitle}{MATH 181 -- Calculus I}
+\newcommand{\duedate}{Due: Friday, October 10} % Class/lecture time
+\newcommand{\readsections}{Read: Section 2.6 and 3.1} % Teacher/lecturer
+\newcommand{\semester}{Fall 2025}
+\title{
+\vspace{2in}
+\textmd{\textbf{\course:\ \assignmentname}}\\
+\normalsize\vspace{0.1in}{\duedate}\\
+\vspace{0.1in}\large{\textit{\instructor}}
+\vspace{3in}
+}
+\author{\textbf{Author: \authorname}}
+\date{Last Updated: \today}
+
+\pointsinrightmargin
+\bracketedpoints
+
+
+%\printanswers % Unomment this line to Print Solutions 
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TITLES AND SUCH
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hspace{1in}\\ \vspace{.15in}
+
+
+\hbox to \textwidth{Name: \hrulefill\hrulefill }
+
+\begin{center}
+\normalsize
+ \fbox{\fbox{\parbox{5.5in}{
+
+        {\bf Instructions:}  All solutions should be prepared carefully and neatly.  Any questions that ask you to explain or justify should have answers written in complete sentences.  All solution sets shall be completed on this packet and handed in at the beginning of class on the due date below.  Careless presentation (e.g.~bad handwriting, pen scribbles, doodles, wasted space, etc) will result in a deduction of points at my discretion.  If the question asks to submit a graph or plot, be sure to print the plot and include it in your final lab report.  Use a PENCIL and if you make a mistake, use an eraser.  Each student should prepare their own solutions that demonstrate their own comprehension of the material.  Submitted work that does not demonstrate clearly the process by which one arrived at the answer will not receive credit of any kind.  Academic dishonesty will not be tolerated. }}}
+\end{center}
+
+\vspace{.5cm}
+
+\ifprintanswers
+	\begin{center}
+		\Huge\textsc{\assignmentname}\\
+		\Large{\textsc{\coursetitle}}\\[4pt]
+		\Large\textsc{\color{red}Solution Key
+		}
+	\end{center}
+\else
+	\begin{center}
+		\Huge\textsc{
+		\assignmentname}\\[4pt]
+                 \Large{\textsc{\coursetitle}\\[10pt]}
+                 \Large{\textsc{\duedate}\\[8pt]}
+                 \Large{\textsc{\readsections}\\[8pt]
+                 }
+	\end{center}
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Blank Page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\normalsize
+\
+\vspace{.5cm}
+
+\huge
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Problem  & Available  &   Your  \\
+Number & Points &    Points  \\	\hline\hline
+
+ $1$  & 10  &   \\	\hline
+ $2$  & 10  &   \\	\hline
+ $3$  & 10 &   \\	\hline
+
+Total & 30  & \\ \hline
+\end{tabular}
+\end{center}
+
+\pagebreak
+
+\normalsize
+\begin{questions}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Part 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question \underline{Plotting a Function with its Tangent Line:} In this part, we'll consider a basic function and derive the formula for the tangent line.  Then, we'll generalize it so that Desmos plots the tangent line equation for any function at any point.   
+
+\begin{parts}
+	\part Open a new graph in Desmos and save it as ``The Tangent Line."
+	\part Define the following function in Desmos: $\displaystyle f(x) = \frac{1}{3}x^3 + x^2 - 4x$.  Graph this function on the window $x\in [-6, 6]$ and $y\in [-5, 20]$.  Plot the curve in black with width size 4. 
+	\part In the below, find the value of $f(-2)$.  Keep your answer in fraction form.  In Desmos, plot this point on the curve, in orange, but let Desmos do the calculation, just type $(-2, f(-2))$ on a new line.  Make it red with size 20.  \vfill
+	\part In the space below, use the limit definition of the derivative at a point to calculate $f'(-2)$.  Show all work\vfill\vfill\vfill
+		\pagebreak
+	\part Now that we have $f(-2)$ and $f'(-2)$, write down the equation of the tangent line in the space below.  On a new line in Desmos, graph the tangent line in green with thickness 3.  \vfill
+	\part Let's streamline this process!  In the space below, write down the formula for the equation of the tangent line at \textit{any} point $(c,f(c))$.  \vfill
+	
+	\part In Desmos, on a new line, define $c = -2$.  Then, change your point $(-2,f(-2))$ to $(c,f(c))$.  Also, delete the line that held the equation of the tangent line, and replace it with your answer to part (f).  You should see the same line you plotted earlier. Shorten the line by restricting the domain to $[c-2, c]$, so that it only has a tail.  Push the play button for $c$.  What happens?  \vfill
+		\pagebreak
+	\part Now, let's make a train by defining the list \texttt{t = [c-1, c-.9, ... c-.1]} on a new line in a folder called ``Train.''  Define the set of points $(t,f(t))$ on a new line.  On another line, type the equation of the tangent line again, but evaluate it at $t$.  Restrict the domain to be between $[t-2, t]$.  Push play on $c$. 
+	\part Play with the train by changing the function or lengthening the tail.  When you submit this assignment on D2L, share the url to this graph.  
+
+	
+\end{parts}
+
+\pagebreak
+
+
+
+
+
+
+
+\question \underline{Continuity and Differentiability:} We consider a piecewise function and try to determine whether it is continuous and/or differentiable.  Then we change the function to make it both. 
+
+
+\begin{parts}
+	\part Open a new graph in Desmos and save it as ``Continuous and Differentiable."
+	\part Define the following function in Desmos: 
+		\[ f(x) = \displaystyle \begin{cases}  
+				x^2 & x\leq 1 \\ 
+				-3x + 1 & x>1 \\
+			\end{cases} \]
+		Make the window $x\in[-3,3]$ and $y\in[-4, 3]$.  Plot the curve in black with thickness 5.  Make sure to plot an open circle and a closed circle where appropriate.  
+		
+		
+	\part Is this function continuous at $x = 1$?  Is it differentiable at $x = 1$?  Justify your answer to the second question by explicitly computing right and left hand limits. \vfill\vfill\vfill
+	
+	\part Type $f'(1)$ into a new line in Desmos.  Did it give an answer?  Is the answer correct?  Explain. \vfill
+
+		\pagebreak
+	\part Let's ``fix'' this function.  Instead of defining the function to the right side of $x =1$ as $-3x + 1$, define it as $ax + b$, where $a$ and $b$ are sliders.  Find a set of values for $a$ and $b$ that make the function continuous, but not differentiable.  Write them below. \vfill
+	
+	\part Now, find a set of values for $a$ and $b$ that makes the function both continuous and differentiable.  Write them below.  Using these values for $a$ and $b$, show using one-sided limits that the function is indeed differentiable at $x = 1$.  \vfill\vfill\vfill
+	
+	\part Is there any way the function can be differentiable but not continuous? Explain. \vfill
+	\part When you submit this assignment on D2L, share the url to this graph.  
+
+	
+	
+	
+	
+	\end{parts}
+\pagebreak
+
+
+\question \underline{What does the Derivative Function Tell Us?:} In this part, we consider two polynomial functions and try to determine what information about the original function the first and second derivatives tell us about it.  We can deduce certain characteristics about a function by inspecting the graph of the derivatives.  
+
+\begin{parts}
+
+	\part Open a new graph in Desmos and save it as ``What the Derivative Tells Us."
+	\part On a new line, define the function $f(x) = x^3 - 3x^2 + 2$.  Graph it on an appropriate window so you can see its characteristics nicely. 
+	\part On the line below it, type $y = f'(x)$.  What do you see? \vfill
+	
+	\part By inspecting the graph of $y = f'(x)$ come up with the actual function.  Write it down below.  (You could also use the limit definition.) \vfill
+	\part Find the zeros of $f'(x)$, either by inspecting the graph of $f'(x)$ or algebraically.  Write them below.\vfill  
+	\part What is true about the graph of $f(x)$ at the zeros of $f'(x)$? \vfill
+	\part Do a sign analysis by writing a number line below, indicating where $f'(x)>0$ and where $f'(x)<0$.  what is happening on the graph of $f(x)$ on these intervals? \vfill
+		\pagebreak
+	\part Now graph $y = f''(x)$.  What type of function is it?  Derive a formula for $f''(x)$ and write it below.  \vfill
+	\part What is true about $f'(x)$ at the zeros of $f''(x)$?  What is true about $f(x)$ at the zeros of $f''(x)$?  \vfill
+	\part Find where $f''(x)>0$ and where $f''(x)<0$.  Describe what is happening with $f'(x)$ and $f(x)$ on these intervals.  \vfill
+	
+	\part What is $f'''(x)$?  What is $f^{(4)}(x)$?  \vfill
+	
+	\part Explore these properties with the function $f(x) = \sin(x)$.  Do similar properties of $f(x)$, $f'(x)$, and $f''(x)$ exist? Explain. \vfill
+	
+	\part When you submit this assignment on D2L, share the url to this graph. 
+	 
+	\end{parts}
+
+
+
+
+
+
+\end{questions}
+
+
+
+
+
+
+
+\end{document} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

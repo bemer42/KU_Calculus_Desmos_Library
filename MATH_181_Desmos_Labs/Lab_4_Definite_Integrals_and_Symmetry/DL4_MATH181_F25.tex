@@ -1,0 +1,232 @@
+\documentclass[]{exam}
+\usepackage{amssymb}
+\usepackage[top=1in, bottom=1.5in, left=1in, right=1in]{geometry}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\checkboxchar{$\Box$}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{comment}
+\usepackage{multicol}
+\usepackage{color}
+\CorrectChoiceEmphasis{\color{red}}
+\SolutionEmphasis{\color{red}}
+\usepackage{advdate}
+\usepackage{gensymb}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+
+\usepackage{pgfkeys,pgfcalendar}
+
+\newcount\pgfdatecount
+\newcommand{\tomorrow}{%
+\pgfcalendardatetojulian{\year-\month-\day+1}{\pgfdatecount}
+\pgfcalendarjuliantodate{\the\pgfdatecount}{\myyear}{\mymonth}{\myday}
+\pgfcalendarmonthname{\mymonth}\space\myday,\space\myyear%
+}
+
+
+\newcommand{\advanceday}[1][1]{
+\begingroup
+\AdvanceDate[#1]
+\today
+\endgroup}
+
+\newcommand{\vertex}{\node[vertex]}
+\tikzstyle{vertex}=[circle, draw, inner sep=0pt, minimum size=6pt]
+
+\usepackage{lastpage} 
+\usepackage{extramarks}
+\usepackage{graphicx} 
+\usepackage{tikz}
+\usepackage{sectsty} 
+\usepackage{amsmath,amsfonts,amsthm} 
+\usepackage{wrapfig, blindtext}
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in 
+\numberwithin{equation}{section}
+\linespread{1.1} 
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+\setlength\answerskip{-.075in}
+\setlength\answerlinelength{.5in}
+\newcommand{\myitem}{\part[-]}
+
+
+
+
+% HEADER AND FOOTER
+\pagestyle{headandfoot}
+\runningheadrule
+\runningfootrule
+\firstpageheader{Kutztown University}{  }{MATH 181 -- Calculus I}
+\firstpageheadrule
+\runningheader{Desmos Lab 4}{ }{MATH 181}
+\firstpagefooter{}{}{} 
+\runningfooter{}{}{Page \thepage\ of \numpages}
+
+
+\newcommand{\assignmentname}{Desmos Lab IV} % Assignment title
+\newcommand{\coursetitle}{MATH 181 -- Calculus I}
+\newcommand{\duedate}{Due: Friday, December 5} % Class/lecture time
+\newcommand{\readsections}{Read: Section 5.3 and 5.5} % Teacher/lecturer
+\newcommand{\semester}{Fall 2025}
+\title{
+\vspace{2in}
+\textmd{\textbf{\course:\ \assignmentname}}\\
+\normalsize\vspace{0.1in}{\duedate}\\
+\vspace{0.1in}\large{\textit{\instructor}}
+\vspace{3in}
+}
+\author{\textbf{Author: \authorname}}
+\date{Last Updated: \today}
+
+\pointsinrightmargin
+\bracketedpoints
+
+
+%\printanswers % Unomment this line to Print Solutions 
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TITLES AND SUCH
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hspace{1in}\\ \vspace{.15in}
+
+
+\hbox to \textwidth{Name: \hrulefill\hrulefill }
+
+\begin{center}
+\normalsize
+ \fbox{\fbox{\parbox{5.5in}{
+
+        {\bf Instructions:}  All solutions should be prepared carefully and neatly.  Any questions that ask you to explain or justify should have answers written in complete sentences.  All solution sets shall be completed on this packet and handed in at the beginning of class on the due date below.  Careless presentation (e.g.~bad handwriting, pen scribbles, doodles, wasted space, etc) will result in a deduction of points at my discretion.  If the question asks to submit a graph or plot, be sure to print the plot and include it in your final lab report.  Use a PENCIL and if you make a mistake, use an eraser.  Each student should prepare their own solutions that demonstrate their own comprehension of the material.  Submitted work that does not demonstrate clearly the process by which one arrived at the answer will not receive credit of any kind.  Academic dishonesty will not be tolerated. }}}
+\end{center}
+
+\vspace{.5cm}
+
+\ifprintanswers
+	\begin{center}
+		\Huge\textsc{\assignmentname}\\
+		\Large{\textsc{\coursetitle}}\\[4pt]
+		\Large\textsc{\color{red}Solution Key
+		}
+	\end{center}
+\else
+	\begin{center}
+		\Huge\textsc{
+		\assignmentname}\\[4pt]
+                 \Large{\textsc{\coursetitle}\\[10pt]}
+                 \Large{\textsc{\duedate}\\[8pt]}
+                 \Large{\textsc{\readsections}\\[8pt]
+                 }
+	\end{center}
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Blank Page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\normalsize
+\
+\vspace{.5cm}
+
+\huge
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Problem  & Available  &   Your  \\
+Number & Points &    Points  \\	\hline\hline
+
+ $1$  & 10  &   \\	\hline
+ $2$  & 10  &   \\	\hline
+
+Total & 20  & \\ \hline
+\end{tabular}
+\end{center}
+
+\pagebreak
+
+\normalsize
+\begin{questions}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Part 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question \underline{Definite Integrals:} In this part, we'll use Desmos to compute definite integrals and validate the constant multiple property of integrals.
+
+\begin{parts}
+	\part Open a new graph in Desmos and save it as ``Definite Integrals."
+	\part Define the following function on the first line in Desmos: $\displaystyle f(x) = 4x^3-2x +2$.  Define the domain of the function from -1$ to 1$ by typing $\{-1\leq x \leq 1\}$ right next to the function.  Graph the function on the window $-2\leq x \leq 2$ and $-0.5 \leq y\leq 5$.
+	\part On the next line, type $0\leq y\leq f(x)\, \{-1\leq x \leq 1\}$.  What does Desmos do?  Explain briefly below. \vfill
+	\part Compute the integral $\displaystyle \int_{-1}^1 4x^3 - 2x +2\, dx$ by hand in the space below using the Fundamental Theorem of Calculus. \vfill\vfill
+	\part Now, on a new line, use Desmos to check your answer by typing in the integral exactly how it looks above. 
+	\part Graph the area below $y = 2f(x)$ by typing $0\leq y\leq 2f(x)\, \{-1\leq x \leq 1\}$.  Have Desmos calculate this area.  Is the answer what you expect?  Explain briefly. \vfill
+	
+		\part When you submit this assignment on D2L, share the \textbf{link} to this graph
+
+	\vspace{2cm}
+	
+
+\end{parts}
+
+\pagebreak
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Part 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question \underline{Symmetric Functions and Area:} In this part, we'll use Desmos to explore how areas bounded by odd and even functions result in a somewhat easier calculation. 
+\begin{parts}
+	\part Open a new graph in Desmos and save it as ``Symmetric Functions."
+	\part Create a folder called ``Even Functions."  Define the following function on the first line in the folder: $\displaystyle f_e(x) = -3x^4+4x^2+2$.  Define the domain of the function from $-a$ to $a$ by typing $\{-a\leq x \leq a\}$ right next to the function.  Define a slider for $a$ and let $a$ range from 0 to 5. 
+	\part On the next two lines in the folder, type $0\leq y\leq f_e(x)\, \{-a\leq x \leq a\}$ and $f_e(x)\leq y\leq 0\, \{-a\leq x \leq a\}$. Push play on $a$.  What does Desmos do?  Explain briefly below. \vfill
+	\part Outside the folder, have Desmos calculate the following integral:  $\displaystyle \int_{-a}^a f_e(x), dx$.  Then on a new line, have it calculate $\displaystyle \int_{0}^a f_e(x), dx$.  What is the relationship between these two areas?  Explain. \vfill
+	\part Toggle off the graph of the even function by clicking the folder.  Now, create a new folder called ``Odd Functions."  Define an odd function of your choice in this folder and call it $f_o(x)$.  Plot the area between $-a$ and $a$, just like you did for the even function.  Now, have Desmos calculate the area $\displaystyle \int_{-a}^a f_o(x), dx$.  Is the area independent of $a$?  Why?  Explain briefly.  \vfill		
+	
+	\part When you submit this assignment on D2L, share the \textbf{link} to this graph
+
+	\vspace{2cm}
+	
+
+\end{parts}
+
+
+
+
+
+
+\end{questions}
+
+\end{document} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

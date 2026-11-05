@@ -1,0 +1,245 @@
+\documentclass[]{exam}
+\usepackage{amssymb}
+\usepackage[top=1in, bottom=1.5in, left=1in, right=1in]{geometry}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\checkboxchar{$\Box$}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{comment}
+\usepackage{multicol}
+\usepackage{color}
+\CorrectChoiceEmphasis{\color{red}}
+\SolutionEmphasis{\color{red}}
+\usepackage{advdate}
+\usepackage{gensymb}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+
+\usepackage{pgfkeys,pgfcalendar}
+
+\newcount\pgfdatecount
+\newcommand{\tomorrow}{%
+\pgfcalendardatetojulian{\year-\month-\day+1}{\pgfdatecount}
+\pgfcalendarjuliantodate{\the\pgfdatecount}{\myyear}{\mymonth}{\myday}
+\pgfcalendarmonthname{\mymonth}\space\myday,\space\myyear%
+}
+
+
+\newcommand{\advanceday}[1][1]{
+\begingroup
+\AdvanceDate[#1]
+\today
+\endgroup}
+
+\newcommand{\vertex}{\node[vertex]}
+\tikzstyle{vertex}=[circle, draw, inner sep=0pt, minimum size=6pt]
+
+\usepackage{lastpage} 
+\usepackage{extramarks}
+\usepackage{graphicx} 
+\usepackage{tikz}
+\usepackage{sectsty} 
+\usepackage{amsmath,amsfonts,amsthm} 
+\usepackage{wrapfig, blindtext}
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in 
+\numberwithin{equation}{section}
+\linespread{1.1} 
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+\setlength\answerskip{-.075in}
+\setlength\answerlinelength{.5in}
+\newcommand{\myitem}{\item[-]}
+
+
+
+
+% HEADER AND FOOTER
+\pagestyle{headandfoot}
+\runningheadrule
+\runningfootrule
+\firstpageheader{Kutztown University}{  }{MATH 283 -- Calculus III}
+\firstpageheadrule
+\runningheader{Desmos Lab 4}{ }{MATH 283}
+\firstpagefooter{}{}{} 
+\runningfooter{}{}{Page \thepage\ of \numpages}
+
+
+\newcommand{\assignmentname}{Desmos Lab IV} % Assignment title
+\newcommand{\coursetitle}{MATH 283 -- Calculus III}
+\newcommand{\duedate}{Due: Friday, December 5} % Class/lecture time
+\newcommand{\readsections}{Read: Section 15.5} % Teacher/lecturer
+\newcommand{\semester}{Fall 2025}
+\title{
+\vspace{2in}
+\textmd{\textbf{\course:\ \assignmentname}}\\
+\normalsize\vspace{0.1in}{\duedate}\\
+\vspace{0.1in}\large{\textit{\instructor}}
+\vspace{3in}
+}
+\author{\textbf{Author: \authorname}}
+\date{Last Updated: \today}
+
+\pointsinrightmargin
+\bracketedpoints
+
+
+%\printanswers % Unomment this line to Print Solutions 
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TITLES AND SUCH
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hspace{1in}\\ \vspace{.15in}
+
+
+\hbox to \textwidth{Name: \hrulefill\hrulefill }
+
+\begin{center}
+\normalsize
+ \fbox{\fbox{\parbox{5.5in}{
+
+        {\bf Instructions:}  All solutions should be prepared carefully and neatly.  Any questions that ask you to explain or justify should have answers written in complete sentences.  All solution sets shall be completed on this packet and handed in at the beginning of class on the due date below.  Careless presentation (e.g.~bad handwriting, pen scribbles, doodles, wasted space, etc) will result in a deduction of points at my discretion.  If the question asks to submit a graph or plot, be sure to print the plot and include it in your final lab report.  Use a PENCIL and if you make a mistake, use an eraser.  Each student should prepare their own solutions that demonstrate their own comprehension of the material.  Submitted work that does not demonstrate clearly the process by which one arrived at the answer will not receive credit of any kind.  Academic dishonesty will not be tolerated. }}}
+\end{center}
+
+\vspace{.5cm}
+
+\ifprintanswers
+	\begin{center}
+		\Huge\textsc{\assignmentname}\\
+		\Large{\textsc{\coursetitle}}\\[4pt]
+		\Large\textsc{\color{red}Solution Key
+		}
+	\end{center}
+\else
+	\begin{center}
+		\Huge\textsc{
+		\assignmentname}\\[4pt]
+                 \Large{\textsc{\coursetitle}\\[10pt]}
+                 \Large{\textsc{\duedate}\\[8pt]}
+                 \Large{\textsc{\readsections}\\[8pt]
+                 }
+	\end{center}
+\fi
+
+\Large
+\begin{center}
+\textsc{\textcolor{red}{Solutions}}
+\end{center}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Blank Page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\normalsize
+\
+\vspace{.5cm}
+
+\huge
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Problem  & Available  &   Your  \\
+Number & Points &    Points  \\	\hline\hline
+
+ $1$  & 10  &  \textcolor{red}{10}  \\	\hline
+
+Total & 10  & \textcolor{red}{10} \\ \hline
+\end{tabular}
+\end{center}
+
+\pagebreak
+
+\normalsize
+\begin{questions}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Question 1 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question \underline{Parametric Surfaces and Surface Area:} In this part, we'll plot a parametric surface and use Desmos to determine its surface area. 
+	
+\begin{parts}
+	\part Open a new graph in Desmos and save it as ``Parametric Surface."
+	\part When defining a parametric surface in Desmos, the two common variables to use are $u$ and $v$.  Define the following three functions on the first three lines: $f(u,v) = u\cos(v) - \frac{u^5}{5} \cos(5v)$, $g(u,v) = -\frac{u^5}{5}\sin(5v) - u\sin(v)$, and $h(u,v) = \frac{2u^3}{3}\cos(3v)$.  On the fourth line, type $(f(u,v), g(u,v), h(u,v))$ and let $u$ range from $0$ to $1.38$ and $v$ from $0$ to $2\pi$.  The generated surface is the same surface as on the front of our textbook (if viewed from above).  
+	\part Taking $\boldsymbol{r}(u,v)$ to be this parameterization, in the space below, write out $|\boldsymbol{r}_u \times \boldsymbol{r}_v|$.  Then have Desmos calculate $\displaystyle \iint_\mathcal{R} |\boldsymbol{r}_u \times \boldsymbol{r}_v|\, dA$.  Report the value below.  What does this number represent? 
+	
+	\textcolor{red}{Calculating each partial derivative and doing the cross product gives a surprisingly simple result.  We have 
+	\begin{align*}
+		\boldsymbol{r}_u & = \langle \cos(v) - u^4 \cos(5v), -u^4\sin(5v) - \sin(v), 2u^2 \cos(3v) \rangle \\ 
+		\boldsymbol{r}_v & = \langle -u\sin(v) + u^5 \sin(5v), -u^5 \cos(5v) - u \cos(v), -2u^3 \sin(3v) \rangle \end{align*}
+	The cross product is 
+	\begin{align*}
+		\boldsymbol{r}_u \times \boldsymbol{r}_v & = \langle 2u^7\sin(3v)\sin(5v) + 2u^3\sin(v)\sin(3v)+2u^7\cos(3v)\cos(5v) + 2u^3\cos(v)\cos(3v), \ldots \\ 
+		& \qquad -2u^3 \cos(3v)\sin(v) + 2u^7\cos(3v)\sin(5v) + 2u^3\cos(v)\sin(3v) - 2u^7 \cos(5v)\sin(3v), \ldots \\ 
+		& \qquad -u\cos^2(v) + u^9\cos^2(5v) - u\sin^2(v) + u^9\sin^2(5v)\rangle \end{align*}
+	We notice that in the first component, we can use the identity $\cos(A-B) = \cos(A)\cos(B) + \sin(A)\sin(B)$, and in the second component, we can use the identity $\sin(A-B) = \sin(A)\cos(B) - \sin(B)\cos(A)$.  We can also use Pythagorean's identity in the third component.  This gives the following: 
+	\[ \boldsymbol{r}_u \times \boldsymbol{r}_v  = \langle 2(u^3 + u^7)\cos(2v), 2(u^3+u^7)\sin(2v), -u + u^9 \rangle\]
+	Computing the length gives the following: 
+		\begin{align*}
+			|\boldsymbol{r}_u \times \boldsymbol{r}_v| & = \sqrt{\big(4(u^3 + u^7)^2\cos^2(2v) + 4(u^3 + u^7)^2 \sin^2(2v) + (-u + u^9)^2 } \\ 
+			& = \sqrt{4u^6 + 8u^{10} + 4u^{14} + u^2 - 2u^{10} + u^{18} } \\
+			& = \sqrt{u^2 + 4u^6 + 6u^{10} + 4u^{14} + u^{18} }\\
+			& = \sqrt{(u^{1/2} + u^{9/2})^4} \\ 
+			& = (u^{1/2} + u^{9/2})^2 \\ 
+			& = u + 2u^5 + u^9. \end{align*}	
+	Therefore, the integral that represents the surface area of the surface is given by 
+		\[  \iint_\mathcal{R} |\boldsymbol{r}_u \times \boldsymbol{r}_v|\, dA = \int_0^{2\pi} \int_0^{1.38} (u + 2u^5 + u^9)\, du\, dv \approx 36.187.\] }
+	\part When you submit this assignment on D2L, share a \textbf{link} to this graph.
+	
+	\textcolor{red}{\texttt{https://www.desmos.com/3d/kq3bkvpgxj}}
+
+
+	
+	
+\end{parts}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{questions}
+
+
+\end{document} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

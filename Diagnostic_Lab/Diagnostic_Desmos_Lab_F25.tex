@@ -1,0 +1,241 @@
+\documentclass[]{exam}
+\usepackage{amssymb}
+\usepackage[top=1in, bottom=1.5in, left=1in, right=1in]{geometry}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\checkboxchar{$\Box$}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{comment}
+\usepackage{multicol}
+\usepackage{color}
+\CorrectChoiceEmphasis{\color{red}}
+\SolutionEmphasis{\color{red}}
+\usepackage{advdate}
+\usepackage{gensymb}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+
+\usepackage{pgfkeys,pgfcalendar}
+
+\newcount\pgfdatecount
+\newcommand{\tomorrow}{%
+\pgfcalendardatetojulian{\year-\month-\day+1}{\pgfdatecount}
+\pgfcalendarjuliantodate{\the\pgfdatecount}{\myyear}{\mymonth}{\myday}
+\pgfcalendarmonthname{\mymonth}\space\myday,\space\myyear%
+}
+
+
+\newcommand{\advanceday}[1][1]{
+\begingroup
+\AdvanceDate[#1]
+\today
+\endgroup}
+
+\newcommand{\vertex}{\node[vertex]}
+\tikzstyle{vertex}=[circle, draw, inner sep=0pt, minimum size=6pt]
+
+\usepackage{lastpage} 
+\usepackage{extramarks}
+\usepackage{graphicx} 
+\usepackage{tikz}
+\usepackage{sectsty} 
+\usepackage{amsmath,amsfonts,amsthm} 
+\usepackage{wrapfig, blindtext}
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in 
+\numberwithin{equation}{section}
+\linespread{1.1} 
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+\setlength\answerskip{-.075in}
+\setlength\answerlinelength{.5in}
+\newcommand{\myitem}{\item[-]}
+
+
+
+
+% HEADER AND FOOTER
+\pagestyle{headandfoot}
+\runningheadrule
+\runningfootrule
+\firstpageheader{Kutztown University}{  }{Diagnostic Lab}
+\firstpageheadrule
+\runningheader{Diagnostic Desmos Lab}{ }{}
+\firstpagefooter{}{}{} 
+\runningfooter{}{}{Page \thepage\ of \numpages}
+
+
+\newcommand{\assignmentname}{Diagnostic Desmos Lab} % Assignment title
+\newcommand{\coursetitle}{\, }
+\newcommand{\duedate}{Due: Friday, September 5} % Class/lecture time
+\newcommand{\readsections}{\, } % Teacher/lecturer
+\newcommand{\semester}{Fall 2025}
+\title{
+\vspace{2in}
+\textmd{\textbf{\course:\ \assignmentname}}\\
+\normalsize\vspace{0.1in}{\duedate}\\
+\vspace{0.1in}\large{\textit{\instructor}}
+\vspace{3in}
+}
+\author{\textbf{Author: \authorname}}
+\date{Last Updated: \today}
+
+\pointsinrightmargin
+\bracketedpoints
+
+
+%\printanswers % Unomment this line to Print Solutions 
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TITLES AND SUCH
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hspace{1in}\\ \vspace{.15in}
+
+
+\hbox to \textwidth{Name: \hrulefill\hrulefill }
+
+\begin{center}
+\normalsize
+ \fbox{\fbox{\parbox{5.5in}{
+
+        {\bf Instructions:}  This lab is a diagnostic assignment. It is not graded and will not count toward your course grade. The purpose is to give both you and your instructor a sense of your current comfort level with Desmos and with using technology in calculus. Please complete the assignment as honestly as possible without outside assistance, so the results reflect your actual starting point.  Do not use calculators, Wolfram Alpha, ChatGPT, or other technology tools to complete this assignment. \textbf{Use only your brain and Desmos.}  Show your work neatly and clearly on this packet. If a problem asks for a graph or plot, generate it in Desmos and include a copy with your submission.  Submit your completed work by uploading it to D2L by the due date listed below. This is for diagnostic purposes only. Your work will help guide instruction and will not be graded for correctness. }}}
+\end{center}
+
+\vspace{.5cm}
+
+\ifprintanswers
+	\begin{center}
+		\Huge\textsc{\assignmentname}\\
+		\Large{\textsc{\coursetitle}}\\[4pt]
+		\Large\textsc{\color{red}Solution Key
+		}
+	\end{center}
+\else
+	\begin{center}
+		\Huge\textsc{
+		\assignmentname}\\[4pt]
+                 \Large{\textsc{\coursetitle}\\[10pt]}
+                 \Large{\textsc{\duedate}\\[8pt]}
+                 \Large{\textsc{\readsections}\\[8pt]
+                 }
+	\end{center}
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Blank Page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\,
+
+\pagebreak
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Start Assignment
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{questions}
+
+\question \underline{Plotting a Function and its Inverse:} Suppose you deposit \$15 into a savings account that yields 3\% annual interest and it is compounded quarterly (i.e.~every three months).  Then the total amount, call it $A(t)$, in your bank account $t$ years after the initial deposit is given by the following exponential function
+\[ A(t) = 15\left( 1 + \frac{0.03}{4}\right)^{4t}  \]
+\begin{parts}
+\part Go to www.desmos.com and create a Desmos account, and start graphing.  Define this function in Desmos as $A(t)$ and plot it on a window for $x\in [-5, 50]$ and $y\in[-2, 80]$.  Submit a screenshot of this graph on D2L.  
+
+%To change the window, click on the wrench in the top right corner.  A menu will come up and you can change the bounds on the $x$-axis and $y$-axis.
+
+\part How much money will be in your account after 20 years?  Use Desmos to calculate this value.  \vfill
+
+\part The annual percentage yield (APY) for this savings account is 3\%.  In the function for $A(t)$, change the value $0.03$ to $p$.  Desmos will ask you if you want to make a slider for $p$, click yes.  Change the bounds on $p$ to go from $0.03$ to $0.15$ with a step size of $0.01$.   Slide $p$ to go from $0.03$ to $0.15$.  Describe what happens to the graph of $A(t)$.  Explain why this behavior makes sense.  \vfill
+
+\part Let $p = 0.15$, which is an APY of 15\%.  How much money is in your account after 20 years? \vfill
+
+		\pagebreak
+
+\part The number of times interest is compounded in this savings account is $4$ times per year.  In the function for $A(t)$, change every instance of $4$ to $n$, and add a slider for $n$ that ranges from 1 to 365 with a step size of $1$. What happens to the function $A(t)$ as $n$ increases?  Is it better if your money is compounded more times per year? Explain.   \vfill
+
+\part Letting $p = 0.03$, report the amount of money in the account after 20 years when $n = 1$ and when $n = 365$.  Does this support your answer to part $(e)$?  \vfill
+
+
+\part Use the space below to find the inverse of this function, solving for $t$ in terms of $A$.  Note: your function for $t$ should depend on $A$, and your expression should also involve the parameters $p$ and $n$.  For any given value of $A$, describe what the output of this function in one sentence.    \vfill
+
+	\pagebreak 
+	
+\part Graph the function $t(A)$ in Desmos.  Adjust the window to be a square that nicely shows both $A(t)$ and $t(A)$.  Describe the relationship between these two functions.  Submit a screenshot of both graphs on D2L.  \vfill
+
+\part Let $p = .03$ and $n = 4$. Using Desmos and your function for $t(A)$, determine how long it will take for your initial \$15 to double.  How long will it take to have \$100 in your account?  \vfill
+
+\part Let $n = 4$.  In the space below, find the APY ($p$) needed in order for your \$15 to double in 2 years.  Share the link to your Desmos page on D2L that validates your answer for $p$.  \vfill \vfill
+
+
+\end{parts}
+\pagebreak
+
+
+\end{questions}
+
+
+
+
+
+%\question Open the dataset named \texttt{LOSTQUOT} in Minitab.  A manufacturer of industrial wheels is losing many profitable orders because of the long time it takes the firm's marketing, engineering, and accounting departments to develop price quotes for potential customers.  In an effort to remedy this problem the firm's management observes the processing time (in days) each department spends developing the price quote for a random sample of last year's quotes.  The price quotes are also classified by whether or not they were lost, i.e.~whether or not the customer placed an order after receiving the price quote. 
+%
+%\begin{parts}
+%	\part Calculate the total processing time for each quote by adding the processing times for each department. Use \texttt{Calc > Row Statistics}, then request \texttt{Sum} of the three department times.  Store the result in a new variable called \texttt{TotalTime}.
+%	\part Obtain descriptive statistics for the total processing time.  Report the sample size, mean, standard deviation, minimum, lower quartile, median, upper quartile, and maximum. \vfill
+%
+%	\part  Construct a histogram of the total processing times.  Is the histogram in terms of frequency or relative frequency?  Describe the shape of the distribution.  How wide is each interval (i.e.~bin)?
+%
+%\vfill
+%
+%	\part Obtain numerical descriptive statistics for the \texttt{TotalTime} column separately for the two groups of quotes: those that were lost and those that were not lost.  Try modifying the \texttt{Group Variable} option.  Report the mean and standard deviation of the ``Lost'' and the ``Not Lost'' quotes.  
+%
+%\vfill
+%
+%\pagebreak
+%
+%
+%	\part Create comparative boxplots of Processing Time separated by Department.  Go to \texttt{Graph > Boxplot > Mulitple Y's Simple}.  Determine which department has the strongest skew. Do any departments have outliers?  Print and submit this graph.
+%	\vfill
+%	
+%	\part Find the average processing time and standard deviation for each department. 
+%	
+%\vfill
+%	\part Based on your analysis, which department likely has an issue?  Explain your reasoning. 
+%
+%\vfill
+%
+%\end{parts}
+
+
+
+
+\end{document} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

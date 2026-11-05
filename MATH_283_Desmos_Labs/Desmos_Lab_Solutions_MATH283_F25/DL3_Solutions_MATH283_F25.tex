@@ -1,0 +1,305 @@
+\documentclass[]{exam}
+\usepackage{amssymb}
+\usepackage[top=1in, bottom=1.5in, left=1in, right=1in]{geometry}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\checkboxchar{$\Box$}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{comment}
+\usepackage{multicol}
+\usepackage{color}
+\CorrectChoiceEmphasis{\color{red}}
+\SolutionEmphasis{\color{red}}
+\usepackage{advdate}
+\usepackage{gensymb}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+
+\usepackage{pgfkeys,pgfcalendar}
+
+\newcount\pgfdatecount
+\newcommand{\tomorrow}{%
+\pgfcalendardatetojulian{\year-\month-\day+1}{\pgfdatecount}
+\pgfcalendarjuliantodate{\the\pgfdatecount}{\myyear}{\mymonth}{\myday}
+\pgfcalendarmonthname{\mymonth}\space\myday,\space\myyear%
+}
+
+
+\newcommand{\advanceday}[1][1]{
+\begingroup
+\AdvanceDate[#1]
+\today
+\endgroup}
+
+\newcommand{\vertex}{\node[vertex]}
+\tikzstyle{vertex}=[circle, draw, inner sep=0pt, minimum size=6pt]
+
+\usepackage{lastpage} 
+\usepackage{extramarks}
+\usepackage{graphicx} 
+\usepackage{tikz}
+\usepackage{sectsty} 
+\usepackage{amsmath,amsfonts,amsthm} 
+\usepackage{wrapfig, blindtext}
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in 
+\numberwithin{equation}{section}
+\linespread{1.1} 
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+\setlength\answerskip{-.075in}
+\setlength\answerlinelength{.5in}
+\newcommand{\myitem}{\item[-]}
+
+
+
+
+% HEADER AND FOOTER
+\pagestyle{headandfoot}
+\runningheadrule
+\runningfootrule
+\firstpageheader{Kutztown University}{  }{MATH 283 -- Calculus III}
+\firstpageheadrule
+\runningheader{Desmos Lab 3}{ }{MATH 283}
+\firstpagefooter{}{}{} 
+\runningfooter{}{}{Page \thepage\ of \numpages}
+
+
+\newcommand{\assignmentname}{Desmos Lab III} % Assignment title
+\newcommand{\coursetitle}{MATH 283 -- Calculus III}
+\newcommand{\duedate}{Due: Friday, November 21} % Class/lecture time
+\newcommand{\readsections}{Read: Section 13.7 and 14.2} % Teacher/lecturer
+\newcommand{\semester}{Fall 2025}
+\title{
+\vspace{2in}
+\textmd{\textbf{\course:\ \assignmentname}}\\
+\normalsize\vspace{0.1in}{\duedate}\\
+\vspace{0.1in}\large{\textit{\instructor}}
+\vspace{3in}
+}
+\author{\textbf{Author: \authorname}}
+\date{Last Updated: \today}
+
+\pointsinrightmargin
+\bracketedpoints
+
+
+%\printanswers % Unomment this line to Print Solutions 
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TITLES AND SUCH
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hspace{1in}\\ \vspace{.15in}
+
+
+\hbox to \textwidth{Name: \hrulefill\hrulefill }
+
+\begin{center}
+\normalsize
+ \fbox{\fbox{\parbox{5.5in}{
+
+        {\bf Instructions:}  All solutions should be prepared carefully and neatly.  Any questions that ask you to explain or justify should have answers written in complete sentences.  All solution sets shall be completed on this packet and handed in at the beginning of class on the due date below.  Careless presentation (e.g.~bad handwriting, pen scribbles, doodles, wasted space, etc) will result in a deduction of points at my discretion.  If the question asks to submit a graph or plot, be sure to print the plot and include it in your final lab report.  Use a PENCIL and if you make a mistake, use an eraser.  Each student should prepare their own solutions that demonstrate their own comprehension of the material.  Submitted work that does not demonstrate clearly the process by which one arrived at the answer will not receive credit of any kind.  Academic dishonesty will not be tolerated. }}}
+\end{center}
+
+\vspace{.5cm}
+
+\ifprintanswers
+	\begin{center}
+		\Huge\textsc{\assignmentname}\\
+		\Large{\textsc{\coursetitle}}\\[4pt]
+		\Large\textsc{\color{red}Solution Key
+		}
+	\end{center}
+\else
+	\begin{center}
+		\Huge\textsc{
+		\assignmentname}\\[4pt]
+                 \Large{\textsc{\coursetitle}\\[10pt]}
+                 \Large{\textsc{\duedate}\\[8pt]}
+                 \Large{\textsc{\readsections}\\[8pt]
+                 }
+	\end{center}
+\fi
+
+
+
+\Large
+\begin{center}
+\textsc{\textcolor{red}{Solutions}}
+\end{center}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Blank Page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\normalsize
+\
+\vspace{.5cm}
+
+\huge
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Problem  & Available  &   Your  \\
+Number & Points &    Points  \\	\hline\hline
+
+ $1$  & 10  &  \textcolor{red}{10}  \\	\hline
+ $2$  & 10  & \textcolor{red}{10}   \\	\hline
+
+Total & 20  & \textcolor{red}{20}\\ \hline
+\end{tabular}
+\end{center}
+
+\pagebreak
+
+\normalsize
+\begin{questions}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Question 1 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question \underline{Optimization:} In this part, we'll maximize the product of three positive numbers assuming that they must add up to a certain value.  This is a classic optimization problem that will demonstrate the second derivative test for two variables functions.
+	
+\begin{parts}
+	\part Open a new graph in Desmos and save it as ``Optimization."
+	\part Suppose we have three positive real numbers, $x$, $y$, and $z$, such that $x + y + z = 100$.  What is the largest possible product of these three numbers?  In other words, what are the three values for $x$, $y$, and $z$ such that $xyz$ is maximized.  Using the sum constraint to eliminate $z$ and define below a function of two variables to be maximized.  Call it $f(x,y)$. 
+	
+	\textcolor{red}{Using $x + y + z = 100$ as the constraint, we can solve for $z = 100 - x - y$ and substitute it into the equation for the product, namely 
+	\[ f = xyz \quad \Rightarrow \quad f(x,y) = xy(100-x-y)  \quad \Rightarrow \quad f(x,y) = 100xy - x^2y - xy^2. \]}s
+	\part On the first line in Desmos, define this function and plot it but only for positive values of $x$ and $y$.  Change the window to $[0, 110]\times [0,110]\times [0,45000]$ so that you can view the surface.  Make the surface green.  Does it have a unique maximum?  
+	
+	\textcolor{red}{The resulting surface for $f(x,y)$ does seem to have a unique maximum because there is clearly a peak of the function, but the exact coordinates are unclear.}
+	
+	\part Find the stationary points of this function below.  Once you have them, define $x_m$ and $y_m$ as those points in Desmos.  Then plot the point $(x_m, y_m, f(x_m, y_m))$ on the surface in orange.  Is it the maximum?   
+	
+	\textcolor{red}{To determine the stationary points, we set the first partial derivatives equal to zero and solve simultaneously. The first partial derivatives are 
+	\[ f_x = 100y - 2xy -  y^2 \qquad \quad f_y = 100x - x^2 - 2xy\]
+	This gives the system 
+	\[ \begin{cases} 
+		100y - 2xy - y^2 & = 0 \\ 
+		100x - x^2 - 2xy & = 0\end{cases}\]
+	Subtracting the two equations gives 
+	\[ 100(y-x) -(y^2 - x^2) = 0 \quad \Rightarrow \quad (y-x)\big(100 - (y+x)\big) = 0\]. 
+	Therefore, we must have that $x = y$ or that $x + y = 100$.  If the latter case were true, then $z = 0$, because all three numbers add up to 100.  But in that case, the product, $f = xyz$, would be zero, which is clearly not the optimal product judging from the graph.  Therefore, we must have $x = y$.  This means 
+	\[ 100x - x^2 - 2x^2 =0 \quad \Rightarrow \quad  100x - 3x^2 = 0 \quad \Rightarrow \quad  x(100 - 3x) = 0. \]
+	This equation gives two solutions, $x = 0$, which is not optimal, and $x = 100/3$.  Solving for $y$, we also get $y = 100/3$.  Therefore, our viable stationary point for the maximum product seems to be 
+	\[ (x,y) = \left( \frac{100}{3}, \frac{100}{3} \right). \]}
+	
+	\part Use Desmos to check the second derivative test for this extreme point.  Create a folder called ``Discriminant.''  In this folder, define $f_{xx}(x,y) = \frac{d}{dx}\left( \frac{d}{dx} \left( f(x,y)\right)\right)$.  Define similar functions for $f_{yy}$ and $f_{xy}$.  Then, define the discriminant as a the function $D(x,y)$ in this folder as well.  On new lines outside the folder evaluate $f_{xx}$ and $D$ at the stationary point $(x_m, y_m)$.  Report the values below and confirm that it is indeed a maximum. 
+	
+	\textcolor{red}{When we plug $100/3$ in for $x$ and $y$ in the discriminant and the second partial derivative in $x$, we get 
+	\[ D\left(\frac{100}{3}, \frac{100}{3} \right) = 3333.33 \qquad \text{and} \qquad f_{xx}\left( \frac{100}{3},  \frac{100}{3} \right) = -66.67.\]
+	Since $D(x_m, y_m) >0$ and $f_{xx}(x_m, y_m) <0$, we know that this stationary point is a relative maximum.  }
+		
+	\part Now, let's generalize this by changing the sum value from 100 to $S$ in the function $f(x,y)$.  Create a slider for $S$ in Desmos and allow it to range from $0$ to $100$ with a stepsize of $0.1$.  Find the stationary points in terms of $S$ below.  What are the new values of $x_m$ and $y_m$?  Redefine them in Desmos.  Push play on $S$.  As $S$ is changing is the discriminant and $f_{xx}$ always positive and negative, respectively? 
+	
+	\textcolor{red}{Using the same process as above, our new function in terms of $S$ is $f(x,y) = Sxy - x^2y - xy^2$.  This gives two equations: 
+			\[ \begin{cases} 
+		Sy - 2xy - y^2 & = 0 \\ 
+		Sx - x^2 - 2xy & = 0\end{cases},\]
+		which yields the solution $(x_m, y_m) = \left( \frac{S}{3}, \frac{S}{3} \right)$. Plugging this into the discriminant and the second partial derivative gives: 
+		\[ \begin{cases} 
+		&D\left( \frac{S}{3}, \frac{S}{3} \right)  = \frac{S^2}{3} \\ 
+		&f_{xx}\left(\frac{S}{3}, \frac{S}{3} \right)  = -\frac{2S}{3}\end{cases},\]
+		which shows that this stationary point will always be a relative maximum.  }
+		
+	\part Now, in the space below, Define $P_{max}$ as the value of the maximum product.  This expression should be a function of $S$.  Find the value of $P_{max}$ if $S = 15000$. 
+	
+	\textcolor{red}{We see that the three numbers, $x$, $y$, and $z$, are all equal to $S/3$.  The value of the product is the value of $f(x,y)$ with the optimal point plugged in. Therefore, 
+		\[ P_{max}(S) = S\left(\frac{S}{3}\right)\left(\frac{S}{3}\right) - \left(\frac{S}{3}\right)^2\left(\frac{S}{3}\right) - \left(\frac{S}{3}\right)\left(\frac{S}{3}\right)^2 = \frac{S^3}{27}. \]
+		If $S = 15000$, then $P_{max} = 125000000000.$}
+	
+	\part When you submit this assignment on D2L, share the url to this graph. 
+	
+	\textcolor{red}{\texttt{https://www.desmos.com/3d/aihq4vnkdx}}
+
+
+
+	
+	
+\end{parts}
+
+\pagebreak 
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Question 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question \underline{Center of Mass:}  In this part, a surface defined by three separate Guassian functions and we'll use Desmos to determine the center of mass.  We'll then define the equation of a cone to describe the surface's center of mass. 
+
+\begin{parts}
+	\part Open a new graph in Desmos and save it as ``Center of Mass."
+	\part Define the following function on the first line of Desmos:
+		\[ f(x,y) = 3e^{-\frac{1}{3}(x-x_1)^2 - \frac{1}{3}(y-y_1)^2} + 2e^{-\frac{1}{2}(x-x_2)^2 - \frac{1}{2}(y-y_2)^2} +e^{-(x-x_3)^2 - (y-y_3)^2}, \] 
+		where $x_1$, $x_2$, etc are defined as sliders ranging from -5 to 5.  Do not plot the function $f(x,y)$.  Instead on a new line under $f(x,y)$, graph $z = f(x,y)$ on the rectangular domain $[-10, 10]\times [-10, 10]$.  Choose value of $x_1, x_2$, etc so that there are three distinct ``humps.'' 
+	\part On new lines, define $M_x$ and $M_y$ and $M$ to be the first moment about the $x$-axis, first moment about the $y$-axis, and the total mass assuming $f(x,y)$ is the density function.  Plot the point $(M_y/M, M_x/M, 0)$ on the graph in purple. What does this point represent? 
+	
+	\textcolor{red}{This point represents the center of mass for the surface. }
+	\part Now, plot a ``fulcrum'' by defining the equation of a cone, the negative part only, the hangs below the surface and whose point is exactly at the center of mass.  Restrict the domain of this cone so that it looks naturally like a fulcrum balancing the surface. Write the equation of this cone in terms of the coordinates of the center of mass.  Push play on $x_1$ and $y_1$.  What happens to the center of mass?  
+	
+	\textcolor{red}{Letting $(x_c, y_c)$ be the center of mass that we determined in the previous part, the equation of the cone is 
+	\[ z = -\sqrt{(x-x_c)^2 + (y-y_c)^2}. \]
+	We can then restrict the domain to be on the circle of radius one centered at $(x_c, y_c)$: $(x-x_c)^2 + (y-y_c)^2 \leq 1$.  As $x_1$ and $y_1$ change, the one ``hump" moves around, which changes the center of mass of the entire surface.  The fulcrum is maintained at the center of mass and moves with it.  }
+	
+		\part When you submit this assignment on D2L, share the url to this graph. 
+
+	\textcolor{red}{\texttt{https://www.desmos.com/3d/nwdqwaenyi}}
+	
+		
+\end{parts}
+		
+\pagebreak
+
+
+
+
+
+
+
+
+
+
+
+
+\end{questions}
+
+
+\end{document} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

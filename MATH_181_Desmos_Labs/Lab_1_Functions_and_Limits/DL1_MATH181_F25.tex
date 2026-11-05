@@ -1,0 +1,333 @@
+\documentclass[]{exam}
+\usepackage{amssymb}
+\usepackage[top=1in, bottom=1.5in, left=1in, right=1in]{geometry}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\checkboxchar{$\Box$}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{comment}
+\usepackage{multicol}
+\usepackage{color}
+\CorrectChoiceEmphasis{\color{red}}
+\SolutionEmphasis{\color{red}}
+\usepackage{advdate}
+\usepackage{gensymb}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+
+\usepackage{pgfkeys,pgfcalendar}
+
+\newcount\pgfdatecount
+\newcommand{\tomorrow}{%
+\pgfcalendardatetojulian{\year-\month-\day+1}{\pgfdatecount}
+\pgfcalendarjuliantodate{\the\pgfdatecount}{\myyear}{\mymonth}{\myday}
+\pgfcalendarmonthname{\mymonth}\space\myday,\space\myyear%
+}
+
+
+\newcommand{\advanceday}[1][1]{
+\begingroup
+\AdvanceDate[#1]
+\today
+\endgroup}
+
+\newcommand{\vertex}{\node[vertex]}
+\tikzstyle{vertex}=[circle, draw, inner sep=0pt, minimum size=6pt]
+
+\usepackage{lastpage} 
+\usepackage{extramarks}
+\usepackage{graphicx} 
+\usepackage{tikz}
+\usepackage{sectsty} 
+\usepackage{amsmath,amsfonts,amsthm} 
+\usepackage{wrapfig, blindtext}
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in 
+\numberwithin{equation}{section}
+\linespread{1.1} 
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+\setlength\answerskip{-.075in}
+\setlength\answerlinelength{.5in}
+\newcommand{\myitem}{\part[-]}
+
+
+
+
+% HEADER AND FOOTER
+\pagestyle{headandfoot}
+\runningheadrule
+\runningfootrule
+\firstpageheader{Kutztown University}{  }{MATH 181 -- Calculus I}
+\firstpageheadrule
+\runningheader{Desmos Lab 1}{ }{MATH 181-050}
+\firstpagefooter{}{}{} 
+\runningfooter{}{}{Page \thepage\ of \numpages}
+
+
+\newcommand{\assignmentname}{Desmos Lab I} % Assignment title
+\newcommand{\coursetitle}{MATH 181 -- Calculus I}
+\newcommand{\duedate}{Due: Wednesday, September 17} % Class/lecture time
+\newcommand{\readsections}{Read: Section 2.2 and 2.4} % Teacher/lecturer
+\newcommand{\semester}{Fall 2025}
+\title{
+\vspace{2in}
+\textmd{\textbf{\course:\ \assignmentname}}\\
+\normalsize\vspace{0.1in}{\duedate}\\
+\vspace{0.1in}\large{\textit{\instructor}}
+\vspace{3in}
+}
+\author{\textbf{Author: \authorname}}
+\date{Last Updated: \today}
+
+\pointsinrightmargin
+\bracketedpoints
+
+
+%\printanswers % Unomment this line to Print Solutions 
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TITLES AND SUCH
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hspace{1in}\\ \vspace{.15in}
+
+
+\hbox to \textwidth{Name: \hrulefill\hrulefill }
+
+\begin{center}
+\normalsize
+ \fbox{\fbox{\parbox{5.5in}{
+
+        {\bf Instructions:}  All solutions should be prepared carefully and neatly.  Any questions that ask you to explain or justify should have answers written in complete sentences.  All solution sets shall be completed on this packet and handed in at the beginning of class on the due date below.  Careless presentation (e.g.~bad handwriting, pen scribbles, doodles, wasted space, etc) will result in a deduction of points at my discretion.  If the question asks to submit a graph or plot, be sure to print the plot and include it in your final lab report.  Use a PENCIL and if you make a mistake, use an eraser.  Each student should prepare their own solutions that demonstrate their own comprehension of the material.  Submitted work that does not demonstrate clearly the process by which one arrived at the answer will not receive credit of any kind.  Academic dishonesty will not be tolerated. }}}
+\end{center}
+
+\vspace{.5cm}
+
+\ifprintanswers
+	\begin{center}
+		\Huge\textsc{\assignmentname}\\
+		\Large{\textsc{\coursetitle}}\\[4pt]
+		\Large\textsc{\color{red}Solution Key
+		}
+	\end{center}
+\else
+	\begin{center}
+		\Huge\textsc{
+		\assignmentname}\\[4pt]
+                 \Large{\textsc{\coursetitle}\\[10pt]}
+                 \Large{\textsc{\duedate}\\[8pt]}
+                 \Large{\textsc{\readsections}\\[8pt]
+                 }
+	\end{center}
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Blank Page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\normalsize
+\
+\vspace{.5cm}
+
+\huge
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Problem  & Available  &   Your  \\
+Number & Points &    Points  \\	\hline\hline
+
+ $1$  & ??  &   \\	\hline
+ $2$  & ??  &   \\	\hline
+ $3$  & ?? &   \\	\hline
+
+Total & ??  & \\ \hline
+\end{tabular}
+\end{center}
+
+\pagebreak
+
+\normalsize
+\begin{questions}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Part 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question \underline{Plotting a Function with Domain and Range:} We consider an algebraic function and graph it with it's domain and range.  Then, we add in some parameters to see how the domain and range changes.  Finally, we derive the inverse function and graph it with the appropriate domain.
+
+\begin{parts}
+	\part Open a new graph in Desmos and save it as ``Domain and Range."
+	\part Graph the function $f(x) = \sqrt{x-1} + 5$ in Desmos.  Plot it in black with thickness value of 8.  In the space below, write down the domain and range of this function. \vfill
+	\part Use Desmos to evaluate $f(3)$ correct to 4 decimal places.  What is $f(0)$?  \vfill
+	\part Create a folder labeled ``Domain" and graph the domain on the $x$-axis.  To do this, type $y = 0 \{ x\geq ??\}$ on a new line, where the $??$ defines the boundary of the domain that you found above.  Plot this with a transparent value of $0.4$, thickness of $5$, and a color of blue. 
+	\part Similarly, create a folder labeled ``Range" and graph the range on the $y$-axis.  To do this, type $x = 0 \{y \geq ??\}$ on a new line.  Plot this with a transparent value of $0.4$, thickness of $5$, and a color of red. 
+
+	\part Modify the function $f(x)$ to be $f(x) = \sqrt{x-a} +b$. When prompted to add sliders for $a$ and $b$, select ``all."  Allow both $a$ and $b$ to range from $-10$ to $10$ with stepsize equal to $0.1$.  Push the play button on both parameters,  what happens to the graph?  \vfill
+	
+	\part In terms of $a$ and $b$, what is the new domain and range of $f(x)$?  Modify your domain and range graphs so that the domain and range moves with the function.  \vfill
+	
+		\pagebreak
+	\part In the space below, find the inverse of $f(x)$.  Note: your answer should be in terms of $a$ and $b$.  Plot this function on the same axes as $g(x)$.  Plot this function on the correct domain so that it matches with its inverse, namely $f(x)$.  Write down the domain and range of the inverse below. \vspace{5cm}
+	
+	\part When you submit this assignment on Desmos, share the url to this graph.  \vfill
+	
+\end{parts}
+
+
+
+\pagebreak
+
+\question \underline{Piecewise Functions and Limits:} We consider a piecewise function that is split into three separate subdomains on the real number line.  We graph this function in Desmos and use it to evaluate limits.  
+
+
+\begin{parts}
+	\part Open a new graph in Desmos and save it as ``Piecewise Function."
+	\part Define the following function in Desmos: 
+		\[ f(x) = \displaystyle \begin{cases}  
+				\frac{1}{2}x + 3 & x<0 \\ 
+				\sin\left(\frac{\pi}{1-x}\right) & 0 \leq x<2 \\
+				\frac{e^{-x/2}}{2} +3 & x\geq 2
+			\end{cases} \]
+	\part Notice that Desmos does not plot open and closed circles.  Plot appropriate open circles and closed circles where they are supposed to be in order for this function to be clearly defined.  Make all circles the same color as the graph with size 8.  
+	\part What is the domain of this function? \vfill
+	\part Use the graph of $f(x)$ to evaluate the following limits and values: 
+	
+	\begin{minipage}{.5\textwidth}
+		\begin{itemize}
+			\item $\displaystyle \lim_{x\to -1^-} f(x) = $
+			\item $\displaystyle \lim_{x\to -1^+} f(x) = $
+			\item $\displaystyle \lim_{x\to -1} f(x) = $
+			\item $\displaystyle f(-1) = $
+			\item $\displaystyle \lim_{x\to 0^-} f(x) = $
+			\item $\displaystyle \lim_{x\to 0^+} f(x) = $
+			\item $\displaystyle \lim_{x\to 0} f(x) = $
+			\item $\displaystyle f(0) = $
+		\end{itemize}
+	\end{minipage}
+		\begin{minipage}{.5\textwidth}
+		\begin{itemize}
+			\item $\displaystyle \lim_{x\to 1^-} f(x) = $
+			\item $\displaystyle \lim_{x\to 1^+} f(x) = $
+			\item $\displaystyle \lim_{x\to 1} f(x) = $
+			\item $\displaystyle f(1) = $
+			\item $\displaystyle \lim_{x\to 2^-} f(x) = $
+			\item $\displaystyle \lim_{x\to 2^+} f(x) = $
+			\item $\displaystyle \lim_{x\to 2} f(x) = $
+			\item $\displaystyle f(2) = $
+		\end{itemize}
+	\end{minipage}
+	
+	\part Does this function have any horizontal asymptotes?  Write down explicit limits below that justify your answer. \vfill
+	
+	\part When you submit this assignment on Desmos, share the url to this graph.  
+
+	
+\end{parts}
+
+
+\pagebreak
+
+
+
+
+
+\question \underline{The Brute Force Method:} Use Desmos to define each function and evaluate it at an appropriate value(s) to numerically determine the limit.  For this part, we won't need the graph of the function. 
+
+
+\begin{parts}
+	\part Open a new graph in Desmos and save it as ``Brute Force Method."
+	
+	\part For each limit below, define the function in Desmos and evaluate it at a number that will approximate the limiting value.  Write down the value for $x$ that you plugged in and the resulting function value.  Then, based on your numerical evaluation, make a conclusion about the value of the limit. 
+\begin{subparts}
+
+	\subpart $\displaystyle \lim_{x\to \infty} \frac{2x - 5}{x^2-4}\approx$ \hspace{7.44cm} \underline{Conclusion:} $\displaystyle \lim_{x\to \infty} \frac{2x - 5}{x^2-4} = $ \vfill
+	\subpart $\displaystyle \lim_{x\to -\infty} \frac{2x - 5}{x^2-4}\approx$ \hspace{7.1cm} \underline{Conclusion:} $\displaystyle \lim_{x\to -\infty} \frac{2x - 5}{x^2-4} = $ \vfill
+
+	\subpart $\displaystyle \lim_{x\to \infty} \frac{2x^2 - 5}{x^2-4}\approx$ \hspace{7.44cm} \underline{Conclusion:} $\displaystyle \lim_{x\to \infty} \frac{2x^2 - 5}{x^2-4} = $ \vfill
+	\subpart $\displaystyle \lim_{x\to -\infty} \frac{2x^2 - 5}{x^2-4}\approx$ \hspace{7.1cm} \underline{Conclusion:} $\displaystyle \lim_{x\to -\infty} \frac{2x^2 - 5}{x^2-4} = $ \vfill
+
+	\subpart $\displaystyle \lim_{x\to \infty} \frac{2x^3 - 5}{x^2-4}\approx$ \hspace{7.44cm} \underline{Conclusion:} $\displaystyle \lim_{x\to \infty} \frac{2x^3 - 5}{x^2-4} = $ \vfill
+	\subpart $\displaystyle \lim_{x\to -\infty} \frac{2x^3 - 5}{x^2-4}\approx$ \hspace{7.1cm} \underline{Conclusion:} $\displaystyle \lim_{x\to -\infty} \frac{2x^3 - 5}{x^2-4} = $ \vfill
+
+	\subpart $\displaystyle \lim_{x\to \infty} \frac{2x - 5}{\sqrt{x^2-4}}\approx$ \hspace{7.44cm} \underline{Conclusion:} $\displaystyle \lim_{x\to \infty} \frac{2x - 5}{\sqrt{x^2-4}} = $ \vfill
+	\subpart $\displaystyle \lim_{x\to -\infty} \frac{2x - 5}{\sqrt{x^2-4}}\approx$ \hspace{7.1cm} \underline{Conclusion:} $\displaystyle \lim_{x\to -\infty} \frac{2x - 5}{\sqrt{x^2-4}} = $ \vfill
+
+
+	\subpart $\displaystyle \lim_{x\to \infty} \arctan(x) \approx$ \hspace{7.4cm} \underline{Conclusion:} $\displaystyle \lim_{x\to \infty} \arctan(x) = $ \vfill
+
+	\subpart $\displaystyle \lim_{x\to -\infty} \arctan(x) \approx$ \hspace{7.2cm} \underline{Conclusion:} $\displaystyle \lim_{x\to -\infty}\arctan(x) = $ \vfill
+
+	\pagebreak
+
+	\subpart $\displaystyle \lim_{x\to 0} \frac{\sin(x)}{x}\approx$ \hspace{7.2cm} \underline{Conclusion:} $\displaystyle \lim_{x\to 0} \frac{\sin(x)}{x}= $ \vfill
+
+	\subpart $\displaystyle \lim_{x\to 0} \frac{\cos(x)-1}{x}\approx$ \hspace{6.8cm} \underline{Conclusion:} $\displaystyle \lim_{x\to 0} \frac{\cos(x)-1}{x}= $ \vfill
+	
+	\subpart $\displaystyle \lim_{x\to 0^+} \ln(x)\approx$ \hspace{7.3cm} \underline{Conclusion:} $\displaystyle \lim_{x\to 0^+}  \ln(x) = $ \vfill	
+	
+	\subpart $\displaystyle \lim_{x\to 0^+} \left(1 + x\right)^{1/x}\approx$ \hspace{5.9cm} \underline{Conclusion:} $\displaystyle \lim_{x\to 0^+} \left(1 + x\right)^{1/x} =$ \vfill	
+	
+
+	\subpart $\displaystyle \lim_{x\to 2} \frac{x^4 - 16}{3x^2 - 5x - 2}\approx$ \hspace{5.8cm} \underline{Conclusion:} $\displaystyle \lim_{x\to 2}\frac{x^4 - 16}{3x^2 - 5x - 2}= $ \vfill
+
+		\subpart $\displaystyle \lim_{x\to 7} \frac{\sqrt{x+2} - 3}{x-7}\approx$ \hspace{6.2cm} \underline{Conclusion:} $\displaystyle  \lim_{x\to 7} \frac{\sqrt{x+2} - 3}{x-7}= $ \vfill
+		
+		\subpart $\displaystyle  \lim_{h\to 0} \frac{ (2 + h)^2 - 4}{h}\approx$ \hspace{6.1cm} \underline{Conclusion:} $\displaystyle  \lim_{h\to 0} \frac{ (2 + h)^2 - 4}{h}= $ \vfill
+				
+
+	
+\end{subparts}
+
+
+\end{parts}
+
+
+
+\pagebreak
+
+
+
+
+
+
+
+\end{questions}
+
+
+
+
+
+
+
+\end{document} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,283 @@
+\documentclass[]{exam}
+\usepackage{amssymb}
+\usepackage[top=1in, bottom=1.5in, left=1in, right=1in]{geometry}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\checkboxchar{$\Box$}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{comment}
+\usepackage{multicol}
+\usepackage{color}
+\CorrectChoiceEmphasis{\color{red}}
+\SolutionEmphasis{\color{red}}
+\usepackage{advdate}
+\usepackage{gensymb}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+
+\usepackage{pgfkeys,pgfcalendar}
+
+\newcount\pgfdatecount
+\newcommand{\tomorrow}{%
+\pgfcalendardatetojulian{\year-\month-\day+1}{\pgfdatecount}
+\pgfcalendarjuliantodate{\the\pgfdatecount}{\myyear}{\mymonth}{\myday}
+\pgfcalendarmonthname{\mymonth}\space\myday,\space\myyear%
+}
+
+
+\newcommand{\advanceday}[1][1]{
+\begingroup
+\AdvanceDate[#1]
+\today
+\endgroup}
+
+\newcommand{\vertex}{\node[vertex]}
+\tikzstyle{vertex}=[circle, draw, inner sep=0pt, minimum size=6pt]
+
+\usepackage{lastpage} 
+\usepackage{extramarks}
+\usepackage{graphicx} 
+\usepackage{tikz}
+\usepackage{sectsty} 
+\usepackage{amsmath,amsfonts,amsthm} 
+\usepackage{wrapfig, blindtext}
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in 
+\numberwithin{equation}{section}
+\linespread{1.1} 
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+\setlength\answerskip{-.075in}
+\setlength\answerlinelength{.5in}
+\newcommand{\myitem}{\item[-]}
+
+
+
+
+% HEADER AND FOOTER
+\pagestyle{headandfoot}
+\runningheadrule
+\runningfootrule
+\firstpageheader{Kutztown University}{  }{MATH 283 -- Calculus III}
+\firstpageheadrule
+\runningheader{Desmos Lab 1}{ }{MATH 283}
+\firstpagefooter{}{}{} 
+\runningfooter{}{}{Page \thepage\ of \numpages}
+
+
+\newcommand{\assignmentname}{Desmos Lab I} % Assignment title
+\newcommand{\coursetitle}{MATH 283 -- Calculus III}
+\newcommand{\duedate}{Due: Wednesday, September 17} % Class/lecture time
+\newcommand{\readsections}{Read: Section 11.1--11.6} % Teacher/lecturer
+\newcommand{\semester}{Fall 2025}
+\title{
+\vspace{2in}
+\textmd{\textbf{\course:\ \assignmentname}}\\
+\normalsize\vspace{0.1in}{\duedate}\\
+\vspace{0.1in}\large{\textit{\instructor}}
+\vspace{3in}
+}
+\author{\textbf{Author: \authorname}}
+\date{Last Updated: \today}
+
+\pointsinrightmargin
+\bracketedpoints
+
+
+%\printanswers % Unomment this line to Print Solutions 
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TITLES AND SUCH
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hspace{1in}\\ \vspace{.15in}
+
+
+\hbox to \textwidth{Name: \hrulefill\hrulefill }
+
+\begin{center}
+\normalsize
+ \fbox{\fbox{\parbox{5.5in}{
+
+        {\bf Instructions:}  All solutions should be prepared carefully and neatly.  Any questions that ask you to explain or justify should have answers written in complete sentences.  All solution sets shall be completed on this packet and handed in at the beginning of class on the due date below.  Careless presentation (e.g.~bad handwriting, pen scribbles, doodles, wasted space, etc) will result in a deduction of points at my discretion.  If the question asks to submit a graph or plot, be sure to print the plot and include it in your final lab report.  Use a PENCIL and if you make a mistake, use an eraser.  Each student should prepare their own solutions that demonstrate their own comprehension of the material.  Submitted work that does not demonstrate clearly the process by which one arrived at the answer will not receive credit of any kind.  Academic dishonesty will not be tolerated. }}}
+\end{center}
+
+\vspace{.5cm}
+
+\ifprintanswers
+	\begin{center}
+		\Huge\textsc{\assignmentname}\\
+		\Large{\textsc{\coursetitle}}\\[4pt]
+		\Large\textsc{\color{red}Solution Key
+		}
+	\end{center}
+\else
+	\begin{center}
+		\Huge\textsc{
+		\assignmentname}\\[4pt]
+                 \Large{\textsc{\coursetitle}\\[10pt]}
+                 \Large{\textsc{\duedate}\\[8pt]}
+                 \Large{\textsc{\readsections}\\[8pt]
+                 }
+	\end{center}
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Blank Page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\normalsize
+\
+\vspace{.5cm}
+
+\huge
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Problem  & Available  &   Your  \\
+Number & Points &    Points  \\	\hline\hline
+
+ $1$  & 10  &   \\	\hline
+ $2$  & 10  &   \\	\hline
+ $3$  & 10 &   \\	\hline
+
+Total & 30  & \\ \hline
+\end{tabular}
+\end{center}
+
+\pagebreak
+
+\normalsize
+\begin{questions}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Question 1 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question \underline{Three Points make a Plane:} Given three points in space $P(x_0, y_0, z_0)$, $Q(x_1, y_1, z_1)$, and $R(x_2, y_2, z_2)$, we want to construct the vectors $\boldsymbol{u} = \vec{PQ}$ and $\boldsymbol{v} = \vec{PR}$, and the normal vector $\boldsymbol{n} = \boldsymbol{u} \times \boldsymbol{v}$.  Using the normal vector, we can construct the plane containing the points $P$, $Q$, and $R$. 
+
+\begin{parts}
+	\part Open a new graph in Desmos and save it as ``Three Points make a Plane."
+	\part In your Desmos project, create a new folder labeled ``Points."  In this folder, define all nine components $x_0, y_0, z_0,$ etc.  Create a slider for each one, ranging from $-5$ to $5$ with a step size of $0.1$.  In the same folder, plot all three points.  Set $P$ to be purple, $Q$ to be blue, and $R$ to be red. Choose values of the components so that you have three distinct points.  
+	
+	\part In the space below, define the components of $\boldsymbol{u} = \vec{PQ}$ and $\boldsymbol{v} = \vec{PR}$ in terms of the components of $P, Q,$ and $R$.  Define all six components, $u_1$, $u_2$, $u_3$, $v_1$, $v_2$, and $v_3$, in Desmos under a folder label ``Vectors".  \vfill
+	
+	\part Plot the vectors $\boldsymbol{u}$ and $\boldsymbol{v}$ by plotting a line segment from $P$ to $Q$ and from $P$ to $R$, respectively.  To do this, define the vector form of a line with $t$ as a parameter from $0$ to $1$.  In the space below, write down the vector form of each line.  Add these two lines into the folder labeled ``Vectors" and graph them in the appropriate color.    \vfill
+	
+	\part In the space below, define the components of $\boldsymbol{n} = \boldsymbol{u} \times  \boldsymbol{v}$ in terms of $u_1, u_2, u_3$, and $v_1, v_2, v_3$.  Define the new components $n_1$, $n_2$, and $n_3$ in Desmos under the ``Vectors" folder.  Define the line segment below, and graph it along with the terminal point for $\boldsymbol{n}$. Make the color purple.   \vfill
+	
+	\pagebreak
+
+	\part In the space below, write down the equation of the plane that contains the points $P$, $Q$, and $R$ in terms of the components of $P$ and the components of $\boldsymbol{n}$.  On a new line in Desmos, outside any folders and at the top of the list, define the equation of the plane and graph it in grey.  \vfill\vfill\vfill
+	
+	\part Manually change the components of each point to the following: $P(2, -1, 4)$, $Q(5, 8, 13)$, and $R(8, 17, 22)$.  Explain below why Desmos is not plotting a plane.  \vfill\vfill\vfill
+	
+	\part When you submit this assignment on Desmos, share the url to this graph with this set of points defined.  \vfill
+	
+\end{parts}
+
+\pagebreak 
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Question 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question \underline{Distance Between Two Lines:} Given two lines in space, $\boldsymbol{\ell_1}(t) = \boldsymbol{r_1} + t \boldsymbol{v_1}$ and $\boldsymbol{\ell_2}(t) = \boldsymbol{r_2} + t\boldsymbol{v_2}$, we want to graph both lines and compute the distance between them by constructing parallel planes.  We will also graph the line segment joining the two planes that is orthogonal to both lines.  
+
+\begin{parts}
+	\part Open a new graph in Desmos and save it as ``Distance Between Two Lines."
+	\part Create a new folder labeled ``Line 1."  Inside the folder, define the position vector components for $\boldsymbol{r_1} = \langle x_1, y_1, z_1\rangle$ and $\boldsymbol{v_1} = \langle a_1, b_1, c_1\rangle$.  Define the vector form of the line in the folder with parameter $t$ spanning from $-100$ to $100$ with step size $0.1$.  Do the same for another folder named ``Line 2." Use whatever color you'd like. \vfill
+
+	\part In the space below, derive the common normal vector, call it $\boldsymbol{n}$, of two parallel planes, each plane containing a line, that is perpendicular to both $\boldsymbol{\ell_1}(t)$ and $\boldsymbol{\ell_2}(t)$.  Create a new folder labeled ``Parallel Planes'' and define the components of $\boldsymbol{n}$ in the folder.  Derive the equation for each plane and define them in this same folder.    \vfill
+	
+	\part In the space below, determine the distance between the two lines.  Write out a formula in terms of the components of $\boldsymbol{r_1}$, $\boldsymbol{r_2}$, and $\boldsymbol{n}$ that determines the distance between the two planes.  Call this distance $d$ on a new line in Desmos. \vfill
+	
+	\pagebreak
+	
+	\part Create a new folder called ``Orthogonal Segment."  In this folder, define the components of the midpoint vector between $\boldsymbol{r_1}$ and $\boldsymbol{r_2}$ as $\boldsymbol{r_m} = \langle x_m, y_m, z_m\rangle$.  Define the components of the unit normal vector $\boldsymbol{u} = \frac{\boldsymbol{n}}{|\boldsymbol{n}|}$.  Using the midpoint vector $\boldsymbol{r_m}$, the vector $\boldsymbol{u}$, and the distance $d$, construct and plot a line segment that extends out from the midpoint and stops when it hits both planes.  Write down below the bounds on your parameter $t$ that correctly builds the line segment. \vfill
+	
+	\part Modify the plot for the parallel planes so they are only plotted on a disc of radius 10 around the midpoint.  When you submit this assignment on Desmos, share the url to this graph.  \vfill
+
+
+\end{parts}
+
+
+
+
+\pagebreak
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Question 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question \underline{Cylinders and Quadric Surfaces:} We want to explore the six quadric surfaces.  For each part below, graph the given surface and then describe what happens to the surface for the given parameter values for $a$, $b$, and $c$.  
+
+\begin{parts}
+	\part Open a new graph in Desmos and save it as ``Quadric Surfaces."
+	\part In the first three lines, define the parameters $a$, $b$, and $c$ as sliders ranging from $0.1$ to $10$ with step size $0.1$.
+	\part For each quadric surface below, create a folder that is labeled as the surface's name.  In the folder, define the graph of each surface and plot it over the following ellipse: $\frac{x^2}{a^2} + \frac{y^2}{b^2} \leq 100$.   After you plot each surface, answer the questions below.
+	\begin{subparts}
+		\subpart Ellipsoid: $\displaystyle \frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} = 1$.  What is the shape if $a = b = c$?  \vfill
+		\subpart Cone: $\displaystyle \frac{z^2}{c^2} = \frac{x^2}{a^2} + \frac{y^2}{b^2}$.  What happens to the surface if $a$ and $b$ remained fixed, but $c$ becomes really small? \vfill
+		\subpart Elliptic Paraboloid: $\displaystyle \frac{z}{c} = \frac{x^2}{a^2} + \frac{y^2}{b^2}$.  Let $a = b = 10$ and $c = 0.5$.  Graph a point at $(0,0,50)$ and a line segment extending from $(0,0,0)$ to $(0,0,50)$, both in the same color as the elliptic paraboloid.  What does the object look like? \vfill
+		\subpart Hyperbolic Paraboloid:  $\displaystyle \frac{z}{c} = \frac{x^2}{a^2} - \frac{y^2}{b^2}$. Determine the appropriate values of $a$, $b$, and $c$ to make this look like a Pringle chip.  Write the values below. \vfill
+		\subpart Hyperboloid of One Sheet:  $\displaystyle  \frac{x^2}{a^2} + \frac{y^2}{b^2} - \frac{z^2}{c^2} = 1$. What happens to this surface if the roles of $z$ and $x$ switch?  \vfill
+		\subpart Hyperboloid of Two Sheets:  $\displaystyle  - \frac{x^2}{a^2} - \frac{y^2}{b^2} + \frac{z^2}{c^2} = 1$. Why is it called ``Two Sheets?" \vfill
+	\end{subparts}
+
+\part Submit this url that creates each surface. 
+	  
+\end{parts}
+
+\pagebreak
+
+
+
+
+
+
+
+\end{questions}
+
+
+\end{document} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
