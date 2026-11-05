@@ -1,0 +1,201 @@
+\documentclass[]{exam}
+\usepackage{amssymb}
+\usepackage[top=1in, bottom=1.5in, left=1in, right=1in]{geometry}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\checkboxchar{$\Box$}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{comment}
+\usepackage{multicol}
+\usepackage{color}
+\CorrectChoiceEmphasis{\color{red}}
+\SolutionEmphasis{\color{red}}
+\usepackage{advdate}
+\usepackage{gensymb}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+
+\usepackage{pgfkeys,pgfcalendar}
+
+\newcount\pgfdatecount
+\newcommand{\tomorrow}{%
+\pgfcalendardatetojulian{\year-\month-\day+1}{\pgfdatecount}
+\pgfcalendarjuliantodate{\the\pgfdatecount}{\myyear}{\mymonth}{\myday}
+\pgfcalendarmonthname{\mymonth}\space\myday,\space\myyear%
+}
+
+
+\newcommand{\advanceday}[1][1]{
+\begingroup
+\AdvanceDate[#1]
+\today
+\endgroup}
+
+\newcommand{\vertex}{\node[vertex]}
+\tikzstyle{vertex}=[circle, draw, inner sep=0pt, minimum size=6pt]
+
+\usepackage{lastpage} 
+\usepackage{extramarks}
+\usepackage{graphicx} 
+\usepackage{tikz}
+\usepackage{sectsty} 
+\usepackage{amsmath,amsfonts,amsthm} 
+\usepackage{wrapfig, blindtext}
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in 
+\numberwithin{equation}{section}
+\linespread{1.1} 
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+\setlength\answerskip{-.075in}
+\setlength\answerlinelength{.5in}
+\newcommand{\myitem}{\part[-]}
+
+
+% HEADER AND FOOTER
+\pagestyle{headandfoot}
+\runningheadrule
+\runningfootrule
+\firstpageheader{Kutztown University}{  }{MATH 182 -- Calculus II}
+\firstpageheadrule
+\runningheader{Desmos Lab I}{ }{MATH 182}
+\firstpagefooter{}{}{} 
+\runningfooter{}{}{Page \thepage\ of \numpages}
+
+
+\newcommand{\assignmentname}{Desmos Lab I} % Assignment title
+\newcommand{\coursetitle}{MATH 182 -- Calculus II}
+\newcommand{\duedate}{Due: Thursday, September 18} % Class/lecture time
+\newcommand{\readsections}{Read: Section 6.1 and 6.2} % Teacher/lecturer
+\newcommand{\semester}{Fall 2025}
+
+\pointsinrightmargin
+\bracketedpoints
+
+
+%\printanswers % Unomment this line to Print Solutions 
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TITLES AND SUCH
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hspace{1in}\\ \vspace{.15in}
+
+
+\hbox to \textwidth{Name: \hrulefill\hrulefill }
+
+\begin{center}
+\normalsize
+ \fbox{\fbox{\parbox{5.5in}{
+
+        {\bf Instructions:}  All solutions should be prepared carefully and neatly.  Any questions that ask you to explain or justify should have answers written in complete sentences.  All solution sets shall be completed on this packet and handed in at the beginning of class on the due date below.  Careless presentation (e.g.~bad handwriting, pen scribbles, doodles, wasted space, etc) will result in a deduction of points at my discretion.  If the question asks to submit a graph or plot, be sure to print the plot and include it in your final lab report.  Use a PENCIL and if you make a mistake, use an eraser.  Each student should prepare their own solutions that demonstrate their own comprehension of the material.  Submitted work that does not demonstrate clearly the process by which one arrived at the answer will not receive credit of any kind.  Academic dishonesty will not be tolerated. }}}
+\end{center}
+
+\vspace{.5cm}
+
+\ifprintanswers
+	\begin{center}
+		\Huge\textsc{\assignmentname}\\
+		\Large{\textsc{\coursetitle}}\\[4pt]
+		\Large\textsc{\color{red}Solution Key
+		}
+	\end{center}
+\else
+	\begin{center}
+		\Huge\textsc{
+		\assignmentname}\\[4pt]
+                 \Large{\textsc{\coursetitle}\\[10pt]}
+                 \Large{\textsc{\duedate}\\[8pt]}
+                 \Large{\textsc{\readsections}\\[8pt]
+                 }
+	\end{center}
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Blank Page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\normalsize
+\
+\vspace{.5cm}
+
+\huge
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Problem  & Available  &   Your  \\
+Number & Points &    Points  \\	\hline\hline
+
+ $1$  & 14  &   \\	\hline
+ $2$  & 8  &   \\	\hline
+
+Total & 22  & \\ \hline
+\end{tabular}
+\end{center}
+
+\pagebreak
+
+\normalsize
+\begin{questions}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Question 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question [(14)] \underline{The Slicing Method:} Suppose a glass container can be modeled by revolving the region bounded by $\displaystyle y = \frac{e^x}{x}$, $y = 0$, $x = 1$, and $x = 2$ about the $x$-axis, where $x$ and $y$ are measured in centimeters.
+
+\begin{parts}
+	\part Create your account on the Desmos website so you can save your created graphs. After completing this lab, please save your created Desmos graph and share its Desmos link below. \vfill
+	
+	\part Plot and shade the region on an appropriate window. What are your ranges of $x$ and $y$? To change the window, click on the wrench in the top right corner. \vfill
+	
+	\part What are the intersection points? Use Desmos to achieve these values. \vfill
+	
+	\part If you use the slicing method, then sketch the cut and make it a slider with appropriate bounds using Desmos. What is your slider's range and step? \vfill
+	
+	\part Share a screenshot of the region with the information from (b)-(d). Investigate how the cut helps you formulate the definite integral to solve the volume. Are you able to identify whether the definite integral is about $x$ or about $y$? What are the integral's limits? \vfill
+	
+	\part Identify its cross section. Can you tell from the graph whether it has a shape of a disk or a washer? What is the area of the cross section? \vfill
+	
+	\part Use Desmos to calculate the volume. Share your formula and the final solution here. \vfill
+\end{parts}
+
+
+
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Question 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question [(8)] \underline{The Shell Method:} Suppose a glass container can be modeled by revolving the same region but this time about the $y$-axis, where $x$ and $y$ are measured in centimeters. Adjust the window if needed.
+
+\begin{parts}
+	\part If you use the shell method, then sketch the cut and make it a slider with appropriate bounds using Desmos. What is your slider's range and step? \vfill
+	
+	\part Share a screenshot of the region with the information from (a). Investigate how the cut helps you formulate the definite integral to solve the volume. Are you able to identify whether the definite integral is about $x$ or about $y$? What are the integral's limits? \vfill
+	
+	\part What are the shell radius and shell height? Are you able to identify these from the created graph? \vfill
+	
+	\part Use Desmos to calculate the volume. Share your formula and the final solution here. \vfill
+\end{parts}
+
+
+\end{questions}
+
+\end{document}

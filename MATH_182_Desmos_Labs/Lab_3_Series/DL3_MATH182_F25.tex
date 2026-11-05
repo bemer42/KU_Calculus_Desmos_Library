@@ -1,0 +1,229 @@
+\documentclass[]{exam}
+\usepackage{amssymb}
+\usepackage[top=1in, bottom=1.5in, left=1in, right=1in]{geometry}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\checkboxchar{$\Box$}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{comment}
+\usepackage{multicol}
+\usepackage{color}
+\CorrectChoiceEmphasis{\color{red}}
+\SolutionEmphasis{\color{red}}
+\usepackage{advdate}
+\usepackage{gensymb}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+
+\usepackage{pgfkeys,pgfcalendar}
+
+\newcount\pgfdatecount
+\newcommand{\tomorrow}{%
+\pgfcalendardatetojulian{\year-\month-\day+1}{\pgfdatecount}
+\pgfcalendarjuliantodate{\the\pgfdatecount}{\myyear}{\mymonth}{\myday}
+\pgfcalendarmonthname{\mymonth}\space\myday,\space\myyear%
+}
+
+
+\newcommand{\advanceday}[1][1]{
+\begingroup
+\AdvanceDate[#1]
+\today
+\endgroup}
+
+\newcommand{\vertex}{\node[vertex]}
+\tikzstyle{vertex}=[circle, draw, inner sep=0pt, minimum size=6pt]
+
+\usepackage{lastpage} 
+\usepackage{extramarks}
+\usepackage{graphicx} 
+\usepackage{tikz}
+\usepackage{sectsty} 
+\usepackage{amsmath,amsfonts,amsthm} 
+\usepackage{wrapfig, blindtext}
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in 
+\numberwithin{equation}{section}
+\linespread{1.1} 
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+\setlength\answerskip{-.075in}
+\setlength\answerlinelength{.5in}
+\newcommand{\myitem}{\part[-]}
+
+
+% HEADER AND FOOTER
+\pagestyle{headandfoot}
+\runningheadrule
+\runningfootrule
+\firstpageheader{Kutztown University}{  }{MATH 182 -- Calculus II}
+\firstpageheadrule
+\runningheader{Desmos Lab I}{ }{MATH 182}
+\firstpagefooter{}{}{} 
+\runningfooter{}{}{Page \thepage\ of \numpages}
+
+
+\newcommand{\assignmentname}{Desmos Lab I} % Assignment title
+\newcommand{\coursetitle}{MATH 182 -- Calculus II}
+\newcommand{\duedate}{Due: Tuesday, Dec 9th} % Class/lecture time
+\newcommand{\readsections}{Read: Section 10.3 and 10.8} % Teacher/lecturer
+\newcommand{\semester}{Fall 2025}
+
+\pointsinrightmargin
+\bracketedpoints
+
+
+%\printanswers % Unomment this line to Print Solutions 
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TITLES AND SUCH
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hspace{1in}\\ \vspace{.15in}
+
+
+\hbox to \textwidth{Name: \hrulefill\hrulefill }
+
+\begin{center}
+\normalsize
+ \fbox{\fbox{\parbox{5.5in}{
+
+        {\bf Instructions:}  All solutions should be prepared carefully and neatly.  Any questions that ask you to explain or justify should have answers written in complete sentences.  All solution sets shall be completed on this packet and handed in at the beginning of class on the due date below.  Careless presentation (e.g.~bad handwriting, pen scribbles, doodles, wasted space, etc) will result in a deduction of points at my discretion.  If the question asks to submit a graph or plot, be sure to print the plot and include it in your final lab report.  Use a PENCIL and if you make a mistake, use an eraser.  Each student should prepare their own solutions that demonstrate their own comprehension of the material.  Submitted work that does not demonstrate clearly the process by which one arrived at the answer will not receive credit of any kind.  Academic dishonesty will not be tolerated. }}}
+\end{center}
+
+\vspace{.5cm}
+
+\ifprintanswers
+	\begin{center}
+		\Huge\textsc{\assignmentname}\\
+		\Large{\textsc{\coursetitle}}\\[4pt]
+		\Large\textsc{\color{red}Solution Key
+		}
+	\end{center}
+\else
+	\begin{center}
+		\Huge\textsc{
+		\assignmentname}\\[4pt]
+                 \Large{\textsc{\coursetitle}\\[10pt]}
+                 \Large{\textsc{\duedate}\\[8pt]}
+                 \Large{\textsc{\readsections}\\[8pt]
+                 }
+	\end{center}
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Blank Page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\normalsize
+\
+\vspace{.5cm}
+
+\huge
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Problem  & Available  &   Your  \\
+Number & Points &    Points  \\	\hline\hline
+
+ $1$  & 10  &   \\	\hline
+ $2$  & 10  &   \\	\hline
+
+Total & 20  & \\ \hline
+\end{tabular}
+\end{center}
+
+\pagebreak
+
+\normalsize
+\begin{questions}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Assignment 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question \underline{Convergence of $p$-Series:} We explore the convergence and divergence of $p$-series using Desmos. We will analyze the behavior of individual terms and then examine the behavior of partial sums. 
+
+\begin{parts}
+	\part \textbf{Understanding $p$-series.}
+\begin{subparts}
+	\subpart Open a new graph in Desmos and save it as ``$p$-Series Convergence."
+	\subpart The $p$-series is defined by $\displaystyle \sum_{n=1}^{\infty} \frac{1}{n^p}$. Enter the function $\displaystyle f(n) = \frac{1}{n^p}$ into Desmos. 
+	\subpart Create a slider for $p$ varying from $0.5$ to $3$. What happens to the terms of the series as $n$ increases when $p = 0.5$? \vfill
+	\subpart What happens to the terms of the series as $n$ increases when $p = 2$? \vfill
+	\subpart Determine the approximate value of $p$ at which the series transitions from divergence to convergence. \vfill
+\end{subparts}	
+	
+	\part \textbf{Understanding partial sums.} 
+	
+	\begin{subparts}
+	\subpart Define the partial sums $S_N$ in Desmos as:
+		\[ S_N = \sum_{n=1}^{N} \frac{1}{n^p}, \quad N = 1, 2, \dots, 50. \]
+	
+	
+	Using Desmos, plot the partial sums $S_N$ as a function of $N$.
+	
+	\subpart How does $S_N$ behave for $p = 0.5$ and for $p = 2$? \vfill
+	\subpart Explain how this behavior corresponds to convergence or divergence of the $p$-series. \vfill
+	\subpart When you submit this assignment on Desmos, share the url to this graph. \vfill
+\end{subparts}
+\end{parts}
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Assignment 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question \underline{Taylor Series Exploration:} We visualize Taylor series approximations and analyze their accuracy. Specifically, we look at how the degree $n$ and the distance from the center affect the error.
+\begin{parts} 
+
+\part \textbf{Visualizing a Taylor Polynomial.}
+
+\begin{subparts}
+	\subpart Open a new graph in Desmos and save it as ``Taylor Series Exploration."
+	\subpart Choose one of the following functions: $f(x) = e^x$, $f(x) = \sin(x)$, or $f(x) = \ln(1+x)$. Plot your chosen function in Desmos.
+	\subpart Add its Taylor polynomial of degree $n$ centered at $x=0$:
+	\[ T_n(x) = \sum_{k=0}^{n} \frac{x^k}{k!} \]
+	(Note: If you chose $\sin(x)$ or $\ln(1+x)$, adjust the formula to match the correct Taylor series).
+	
+	\subpart Create a slider for $n$ ranging from $1$ to $100$. How does increasing $n$ affect the accuracy of the approximation? \vfill
+	\subpart For which values of $x$ does the Taylor polynomial approximate the function well? \vfill
+	\subpart Compare $T_3(x)$, $T_5(x)$, and $T_{10}(x)$ on the same graph. \vfill
+\end{subparts}
+
+	\pagebreak
+	
+	\part \textbf{Error Analysis.} 
+	
+	\begin{subparts}
+	
+	\subpart Define the approximation error:
+	\[ E_n(x) = |f(x) - T_n(x)| \]
+	Plot $E_n(x)$ in Desmos for different values of $n$.
+	
+	\subpart How does the error change as $n$ increases? \vfill
+	\subpart How far from $x = 0$ does the Taylor polynomial remain a good approximation? \vfill
+	\subpart When you submit this assignment on Desmos, share the url to this graph. \vfill
+	
+\end{subparts}
+
+\end{parts}
+
+\end{questions}
+
+\end{document}
