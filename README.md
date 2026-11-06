@@ -12,7 +12,7 @@ This repository contains a comprehensive library of interactive Desmos programs 
 ## MATH 181 -- Calculus I Activities
 
 ### Chapter 1: Functions
-* [Domain and Range]([https://www.desmos.com/calculator/rhx6x9hlqa])
+* [Domain and Range](https://www.desmos.com/calculator/rhx6x9hlqa)
 
 ### Chapter 2: Limits
 * [Graphical Limits](https://www.desmos.com/calculator/dcba497886)
